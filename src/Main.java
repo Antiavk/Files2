@@ -9,7 +9,7 @@ import java.util.zip.ZipOutputStream;
 
 public class Main  {
 
-      private static final String filePathToSave = "C://Games/savegames";
+      private static final String filePathToSave = "C://Games/savegames/";
       private static List<String> FilesInDirectory = new ArrayList<String>();
 
     public static void main(String[] args) {

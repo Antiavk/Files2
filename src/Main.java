@@ -1,7 +1,4 @@
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -24,6 +21,8 @@ public class Main  {
             saveGame("savegame0003.date", savegame0003);
 
         zipFiles(filePathToSave, (ArrayList<String>) FilesInDirectory);
+
+        filesDelNoZip(FilesInDirectory);
     }
 
     public static void saveGame(String filePath, GameProgress gameProgress) {
@@ -63,6 +62,17 @@ public class Main  {
             System.out.println("Файл zipFile.zip  добавлен в архив.");
           } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public static void filesDelNoZip(List<String> listFilesInDirectory) {
+        for (String currentSave : listFilesInDirectory) {
+            File fileToDel = new File(currentSave);
+            if(fileToDel.delete()){
+                System.out.println("Удален файл " + fileToDel + ".");
+            } else {
+                System.out.println("Не удалось удалить файл " + fileToDel + ".");
+            }
         }
     }
 }
